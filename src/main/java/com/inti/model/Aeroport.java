@@ -23,7 +23,7 @@ public class Aeroport {
     
     
     
-    @OneToMany(mappedBy = "aeroport")
+    @OneToMany(mappedBy = "aeroport", targetEntity = Vol.class)
     private List<Vol> listeVol;
     
     

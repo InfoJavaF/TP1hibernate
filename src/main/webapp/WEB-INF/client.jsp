@@ -66,8 +66,8 @@
 				aria-expanded="false">Selectionnez un vol</button>
 			<div class="dropdown-menu">
 				<select name="name">
-					<c:forEach var="s" items="${tab}">
-						<option value="${s}">${s}</option>
+					<c:forEach var="s" items="${ListeV}">
+						<option value="${s.getIdVol()}">${s.getIdVol()}</option>
 					</c:forEach>
 				</select>
 			</div>

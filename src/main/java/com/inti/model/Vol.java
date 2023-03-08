@@ -36,7 +36,7 @@ public class Vol {
     private List<Reservation> listeReservation;
     
     @ManyToOne
-    @JoinColumn(name="idvol")
+    @JoinColumn(name="idA")
     private Aeroport aeroport;
 
     public Vol() {
