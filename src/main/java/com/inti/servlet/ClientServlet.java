@@ -14,6 +14,9 @@ import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 
 import com.inti.model.Client;
+import com.inti.model.Passager;
+import com.inti.model.Reservation;
+import com.inti.model.Vol;
 import com.inti.util.HibernateUtil;
 
 
@@ -32,7 +35,7 @@ public class ClientServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	session = HibernateUtil.getSessionFactory().openSession();
 
-		
+		request.setAttribute("ListeV", session.createNativeQuery("SELECT * FROM vol", Vol.class).getResultList());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/client.jsp").forward(request, response);
 	}
 
@@ -46,9 +49,12 @@ try {
 			log.info("Début enregistrement commande");
 			
 			Client c1 = new Client(request.getParameter("nomC"), request.getParameter("prenomC"), request.getParameter("adresseC"),Integer.parseInt(request.getParameter("telephoneC")), request.getParameter("mail"));
-			
-           
-			session.save(c1);
+			Passager p1 = new Passager(request.getParameter("nomP"), request.getParameter("prenomP"));
+			Vol v1 = session.get(Vol.class, request.getParameter("volP"));
+            Reservation r1 = new Reservation(LocalDate.now() , c1, p1,  v1);
+            session.save(c1);
+            session.save(p1);
+            session.save(r1);
 			
 			session.getTransaction().commit();
 		} catch (Exception e) {

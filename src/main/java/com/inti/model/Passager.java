@@ -28,11 +28,10 @@ public class Passager {
 	public Passager() {
 	    }
 
-	public Passager(String nom, String prenom, List<Reservation> reservation) {
+	public Passager(String nom, String prenom) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
-		this.reservation = reservation;
 	}
 
 	public int getIdP() {

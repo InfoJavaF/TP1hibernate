@@ -16,13 +16,13 @@ public class Reservation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idReservation;
+	private int numero;
 
 	@ManyToOne
 	@JoinColumn(name = "idClient")
 	private Client client;
 	
-    private int numero;
+    
     private LocalDate date;
     
     @ManyToOne
@@ -36,12 +36,12 @@ public class Reservation {
  Reservation() {
     }
    
-    public Reservation(int numero, LocalDate date, Client client, Passager passager) {
+    public Reservation( LocalDate date, Client client, Passager passager,Vol vol) {
 		super();
-		this.numero = numero;
 		this.date = date;
 		this.client = client;
 		this.passager = passager;
+		this.vol = vol;
 	}
 	public void Annuler() {
         // TODO implement here

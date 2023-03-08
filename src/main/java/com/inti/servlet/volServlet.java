@@ -43,7 +43,7 @@ public class volServlet extends HttpServlet {
 		s = HibernateUtil.getSessionFactory().openSession();
 		log.debug("Connexion à la BDD et configuration d'hibernate depuis commande");
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/vol.jsp").forward(request, response);
 		}
 
 	

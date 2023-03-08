@@ -20,10 +20,9 @@
 		<h1>Formulaire Reservation</h1>
 		<h2>Client</h2>
 		<div class="mb-3">
-			<label for="exampleInputEmail1" class="form-label">Nom(*)</label>
-			<input type="text" name="nomC" required="required"
-				class="form-control" id="exampleInputEmail1"
-				aria-describedby="emailHelp">
+			<label for="exampleInputEmail1" class="form-label">Nom(*)</label> <input
+				type="text" name="nomC" required="required" class="form-control"
+				id="exampleInputEmail1" aria-describedby="emailHelp">
 
 		</div>
 		<div class="mb-3">
@@ -43,14 +42,40 @@
 				id="exampleInputEmail1" aria-describedby="emailHelp">
 		</div>
 		<div class="mb-3">
-			<label for="exampleInputEmail1" class="form-label">Email(*)</label>
-			<input type="text" name="mail" required="required"
-				class="form-control" id="exampleInputEmail1"
-				aria-describedby="emailHelp">
+			<label for="exampleInputEmail1" class="form-label">Email(*)</label> <input
+				type="text" name="mail" required="required" class="form-control"
+				id="exampleInputEmail1" aria-describedby="emailHelp">
 		</div>
-		
-		<div class="form-text">(*) : champs obligatoires</div><br><br>
-		
+
+		<h2>Passager</h2>
+		<div class="mb-3">
+			<label for="exampleInputEmail1" class="form-label">Nom(*)</label> <input
+				type="text" name="nomP" required="required" class="form-control"
+				id="exampleInputEmail1" aria-describedby="emailHelp">
+
+		</div>
+		<div class="mb-3">
+			<label for="exampleInputPassword1" class="form-label">Prenom(*)</label>
+			<input type="text" name="prenomP" required="required"
+				class="form-control" id="exampleInputPassword1">
+		</div>
+
+		<div class="btn-group">
+			<button class="btn btn-secondary btn-lg dropdown-toggle" name="volP"
+				type="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false">Selectionnez un vol</button>
+			<div class="dropdown-menu">
+				<select name="name">
+					<c:forEach var="s" items="${tab}">
+						<option value="${s}">${s}</option>
+					</c:forEach>
+				</select>
+			</div>
+		</div>
+		<div class="form-text">(*) : champs obligatoires</div>
+		<br>
+		<br>
+
 		<button type="submit" class="btn btn-primary">Submit</button>
 		<button type="reset" class="btn btn-danger">Annuler</button>
 	</form>
